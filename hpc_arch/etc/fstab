@@ -1,0 +1,36 @@
+# 
+# /etc/fstab: static file system information
+#
+# <file system>        <dir>         <type>    <options>          <dump> <pass>
+devpts                 /dev/pts      devpts    defaults            0      0
+shm                    /dev/shm      tmpfs     nodev,nosuid        0      0
+
+#/dev/cdrom             /media/cd   auto    ro,user,noauto,unhide   0      0
+#/dev/dvd               /media/dvd  auto    ro,user,noauto,unhide   0      0
+#/dev/fd0               /media/fl   auto    user,noauto             0      0
+
+
+# DOCS[/dev/sdb] 1 arch_system
+UUID=5cc12686-fade-4b42-81f0-8bf5bed9001e 	/ 			ext3 		defaults,auto 						0	1
+# DOCS[/dev/sdb] 5 swap
+UUID=b6307efa-ee47-43c7-ad90-b1cb3638b39a 	swap 			swap 		defaults,auto 						0	0
+# DOCS[/dev/sdb] 2 seven_system
+UUID=79937AEB3C28F0AB 				/media/seven_system 	ntfs-3g 	defaults,gid=users,fmask=113,dmask=002,auto		0	0
+# DOCS[/dev/sdb] 3 gentoo_system
+UUID=30724f03-0adf-4f77-b097-630ce34e42c9  	/media/gentoo_system 	ext2 		defaults,relatime,auto					0	0
+# STUFF[/dev/sda] 1 stuff
+UUID=652634AC4341A4B2				/media/stuff		ntfs-3g		defaults,gid=users,fmask=113,dmask=002,auto		0	0
+# SYS[/dev/sdc] 1 kubuntu_system
+UUID=15549740-e08f-42ae-b534-c4dbcf40ae11	/media/kubuntu_system	ext4		defaults,relatime,auto					0	0
+# SYS[/dev/sdc] 2 mac_system
+# ???????
+# SYS[/dev/sdc] 3 xp_system
+UUID=52F0AAF9F0AAE309				/media/xp_system	ntfs-3g		defaults,gid=users,fmask=113,dmask=002,auto		0	0
+# SYS[/dev/sdc] 5 swap
+# ....
+# SYS[/dev/sdc] 6 first_system
+UUID=ba8fa58c-af6a-4cac-95ba-4d6d404cdedf	/media/first_system	ext4		defaults,relatime,auto					0	0
+# SYS[/dev/sdc] 7 second_system
+UUID=9876dba0-64da-4212-9a05-290cac5005ad	/media/second_system	ext4		defaults,relatime,auto					0	0
+# BIG[/dev/sdd] 1 big
+UUID=ffb09007-8094-4157-aa9d-8a2c8f9f889e	/media/big		ext2		defaults,relatime,auto					0	0
