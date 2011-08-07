@@ -1,0 +1,12 @@
+!urxvt*consoleHeight: 30 #высота консоли в строках
+!urxvt*toggleKey: None+Menu #hotkey
+urxvt*foreground: green
+urxvt*background: black
+urxvt*term: urxvt
+urxvt*saveLines: 500
+!urxvt*transparent: true
+!urxvt*shading: 10
+urxvt*scrollBar: false
+urxvt*internalBorder: 0
+urxvt*externalBorder: 0
+urxvt*font: xft:Terminus:pixelsize=8:antialias=true:hinting=true

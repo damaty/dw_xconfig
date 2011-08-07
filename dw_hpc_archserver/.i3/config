@@ -1,0 +1,189 @@
+# MISC
+	font -*-terminus-*-*-*-*-12-*-*-*-*-*-iso10646-*
+
+	set $mod Mod4
+	floating_modifier $mod
+	new_window 1pixel
+	focus_follows_mouse no
+	popup_during_fullscreen leave_fullscreen
+
+# APP RULES
+	for_window [class="MPlayer"] floating enable
+	for_window [class="VLC"] floating enable
+	for_window [class="Yakuake"] floating enable
+	#for_window [title="x200: ~/work"] floating enable
+
+# WORKSPACES
+	#1 - TERMINAL
+	assign Urxvt 1
+	#2 - WEB
+	assign Chromium 2
+	assign Firefox 2
+	#3 - IM
+	assign Pidgin 3
+	#4 - MEDIA
+	assign VLC 4
+	assign Mplayer 4
+	
+### APP KEYBINDING
+	bindsym $mod+Return exec /usr/bin/urxvt -e tmux 
+	bindsym $mod+d exec /usr/bin/dmenu_run -fn '-xos4-terminus-*-*-*-*-12-*-*-*-*-*-*-*'
+	bindsym $mod+p exec i3lock
+	bindsym $mod+c	exec /home/damaty/.i3/toggle_tray.sh
+### DEFAULT KEYBINDING
+
+	bindsym $mod+Shift+Q kill
+
+	# change focus
+	bindsym $mod+h focus left
+	bindsym $mod+j focus down
+	bindsym $mod+k focus up
+	bindsym $mod+l focus right
+
+	# alternatively, you can use the cursor keys:
+	bindsym $mod+Left focus left
+	bindsym $mod+Down focus down
+	bindsym $mod+Up focus up
+	bindsym $mod+Right focus right
+
+	# move focused window
+	bindsym $mod+Shift+H move left
+	bindsym $mod+Shift+J move down
+	bindsym $mod+Shift+K move up
+	bindsym $mod+Shift+L move right
+
+	# alternatively, you can use the cursor keys:
+	bindsym $mod+Shift+Left move left
+	bindsym $mod+Shift+Down move down
+	bindsym $mod+Shift+Up move up
+	bindsym $mod+Shift+Right move right
+
+	# split in horizontal orientation
+	bindsym $mod+h split h
+
+	# split in vertical orientation
+	bindsym $mod+v split v
+
+	# enter fullscreen mode for the focused container
+	bindsym $mod+f fullscreen
+
+	# change container layout (stacked, tabbed, default)
+	bindsym $mod+s layout stacking
+	bindsym $mod+w layout tabbed
+	bindsym $mod+e layout default
+
+	# toggle tiling / floating
+	bindsym $mod+Shift+space floating toggle
+
+	# change focus between tiling / floating windows
+	bindsym $mod+space focus mode_toggle
+
+	# focus the parent container
+	bindsym $mod+a focus parent
+
+	# focus the child container
+	#bindcode $mod+d focus child
+
+	bindsym $mod+Control+Right workspace next
+	bindsym $mod+Control+Left workspace prev
+
+	# switch to workspace
+	bindsym $mod+1 workspace 1
+	bindsym $mod+2 workspace 2
+	bindsym $mod+3 workspace 3
+	bindsym $mod+4 workspace 4
+	bindsym $mod+5 workspace 5
+	bindsym $mod+6 workspace 6
+	bindsym $mod+7 workspace 7
+	bindsym $mod+8 workspace 8
+	bindsym $mod+9 workspace 9
+	bindsym $mod+0 workspace 10
+
+	# move focused container to workspace
+	bindsym $mod+Shift+exclam move workspace 1
+	bindsym $mod+Shift+at move workspace 2
+	bindsym $mod+Shift+numbersign move workspace 3
+	bindsym $mod+Shift+dollar move workspace 4
+	bindsym $mod+Shift+percent move workspace 5
+	bindsym $mod+Shift+asciicircum move workspace 6
+	bindsym $mod+Shift+ampersand move workspace 7
+	bindsym $mod+Shift+asterisk move workspace 8
+	bindsym $mod+Shift+parenleft move workspace 9
+	bindsym $mod+Shift+parenright move workspace 10
+
+	# reload the configuration file
+	bindsym $mod+Shift+C reload
+	# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+	bindsym $mod+Shift+R restart
+	# exit i3 (logs you out of your X session)
+	bindsym $mod+Shift+E exit
+
+	# MODE APP RUN
+	mode "apprun" {
+		bindsym t exec urxvt; mode "default"
+		bindsym w exec firefox; mode "default"
+		bindsym Escape mode "default"
+	}
+	#bindsym Mod1+s mode "apprun"
+
+	mode "appswitch" {
+		bindsym w [class="Firefox"] focus; mode "default"
+
+		bindsym q mode "apprun"
+		bindsym $mod+q mode "apprun"
+
+		#bindsym Return mode "default"
+		bindsym Escape mode "default"
+	}	
+	bindsym $mod+q mode "appswitch"
+
+	mode "resize" {
+		bindsym j resize shrink left 10 px or 10 ppt
+		bindsym Shift+J resize grow   left 10 px or 10 ppt
+
+		bindsym k resize shrink down 10 px or 10 ppt
+		bindsym Shift+K resize grow   down 10 px or 10 ppt
+
+		bindsym l resize shrink up 10 px or 10 ppt
+		bindsym Shift+L resize grow   up 10 px or 10 ppt
+
+		bindsym semicolon resize shrink right 10 px or 10 ppt
+		bindsym Shift+colon resize grow   right 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+		bindsym Left resize shrink left 10 px or 10 ppt
+		bindsym Shift+Left resize grow   left 10 px or 10 ppt
+
+		bindsym Down resize shrink down 10 px or 10 ppt
+		bindsym Shift+Down resize grow   down 10 px or 10 ppt
+
+		bindsym	Up resize shrink up 10 px or 10 ppt
+		bindsym Shift+Up resize grow   up 10 px or 10 ppt
+
+		bindsym Right resize shrink right 10 px or 10 ppt
+		bindsym Shift+Right resize grow   right 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+		bindsym Return mode "default"
+		bindsym Escape mode "default"
+	}	
+
+bindsym $mod+r mode "resize"
+
+#bindsym $mod+x [class="urxvt"] focus lef
+
+
+#client.focused #FF0000 #000000 #000000
+
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+exec i3status | i3bar -d
+exec feh --bg-scale /home/damaty/.i3/wallpaper.jpg
+exec conky -c /home/damaty/.i3/conky/conkydate
+exec conky -c /home/damaty/.i3/conky/conkyhr
+exec conky -c /home/damaty/.i3/conky/conkymin
+exec conky -c /home/damaty/.i3/conky/conkystats
+ 
+#exec
+#exec_always
